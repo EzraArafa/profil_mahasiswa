@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../widgets/profile_photo.dart';
-import '../widgets/profile_info.dart';
+import 'package:profile_mhs/widgets/profile_photo.dart';
+import 'package:profile_mhs/widgets/profile_info.dart';
+import 'package:profile_mhs/widgets/social_media_row.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -24,12 +25,14 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: 24),
               const ProfileInfo(
                 name: 'Ezra Muhammad arafa',
-                nim: '21.11.0000',
+                nim: '23.11.5614',
                 programStudi: 'S1 Informatika',
                 email: 'email@students.amikom.ac.id',
                 lokasi: 'Yogyakarta, Indonesia',
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 40),
+              const SocialMediaRow(),
+              const SizedBox(height: 40),
               // Tombol aksi
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
