@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:profile_mhs/widgets/profile_photo.dart';
 import 'package:profile_mhs/widgets/profile_info.dart';
 import 'package:profile_mhs/widgets/social_media_row.dart';
+import 'package:profile_mhs/screens/about_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -46,6 +47,18 @@ class ProfileScreen extends StatelessWidget {
                     onPressed: () {},
                     icon: const Icon(Icons.share),
                     label: const Text('Bagikan'),
+                  ),
+                  ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const AboutScreen(),
+                        ),
+                      );
+                    },
+                    icon: const Icon(Icons.info),
+                    label: const Text('Tentang'),
                   ),
                 ],
               ),
