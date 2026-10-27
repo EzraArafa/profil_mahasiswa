@@ -8,9 +8,8 @@ class AboutScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Stack(
-          alignment: Alignment.center, // Sesuai petunjuk a: meletakkan konten utama di tengah
+          alignment: Alignment.center, 
           children: [
-            // a) Gambar latar dengan Container, BoxDecoration, dan Gradient
             Container(
               decoration: const BoxDecoration(
                 gradient: LinearGradient(

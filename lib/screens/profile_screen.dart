@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:profile_mhs/widgets/profile_photo.dart';
-import 'package:profile_mhs/widgets/profile_info.dart';
-import 'package:profile_mhs/widgets/social_media_row.dart';
-import 'package:profile_mhs/screens/about_screen.dart';
+import '../widgets/profile_photo.dart';
+import '../widgets/profile_info.dart';
+import '../widgets/social_media_row.dart';
+import 'about_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -15,38 +15,44 @@ class ProfileScreen extends StatelessWidget {
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const SizedBox(height: 24),
-              const ProfilePhoto(radius: 60),
-              const SizedBox(height: 24),
-              const ProfileInfo(
-                name: 'Ezra Muhammad arafa',
-                nim: '23.11.5614',
-                programStudi: 'S1 Informatika',
-                email: 'email@students.amikom.ac.id',
-                lokasi: 'Yogyakarta, Indonesia',
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            // a) Bagian profil dibungkus Expanded + SingleChildScrollView di dalamnya
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: const [
+                    SizedBox(height: 16),
+                    ProfilePhoto(radius: 60),
+                    SizedBox(height: 24),
+                    ProfileInfo(
+                      name: 'Ezra Muhammad arafa',
+                      nim: '23.11.5614',
+                      programStudi: 'S1 Informatika',
+                      email: 'email@students.amikom.ac.id',
+                      lokasi: 'Yogyakarta, Indonesia',
+                    ),
+                    SizedBox(height: 24),
+                    SocialMediaRow(),
+                    SizedBox(height: 16),
+                  ],
+                ),
               ),
-              const SizedBox(height: 40),
-              const SocialMediaRow(),
-              const SizedBox(height: 40),
-              // Tombol aksi
-              Row(
+            ),
+
+            // b) Tombol aksi dibungkus Flexible sejajar langsung di Column utama
+            Flexible(
+              flex: 1,
+              fit: FlexFit.loose,
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   ElevatedButton.icon(
                     onPressed: () {},
                     icon: const Icon(Icons.edit),
                     label: const Text('Edit'),
-                  ),
-                  ElevatedButton.icon(
-                    onPressed: () {},
-                    icon: const Icon(Icons.share),
-                    label: const Text('Bagikan'),
                   ),
                   ElevatedButton.icon(
                     onPressed: () {
@@ -62,8 +68,8 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
