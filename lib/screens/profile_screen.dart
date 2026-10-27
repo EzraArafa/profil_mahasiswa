@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../widgets/profile_photo.dart';
+import '../widgets/profile_header.dart';
 import '../widgets/profile_info.dart';
 import '../widgets/social_media_row.dart';
-import 'about_screen.dart';
+import '../widgets/action_buttons.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -19,56 +19,29 @@ class ProfileScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            // a) Bagian profil dibungkus Expanded + SingleChildScrollView di dalamnya
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
-                  children: const [
-                    SizedBox(height: 16),
-                    ProfilePhoto(radius: 60),
-                    SizedBox(height: 24),
-                    ProfileInfo(
+                  children: [
+                    const SizedBox(height: 16),
+                    const ProfileHeader(
                       name: 'Ezra Muhammad arafa',
                       nim: '23.11.5614',
+                    ),
+                    const SizedBox(height: 24),
+                    const ProfileInfo(
                       programStudi: 'S1 Informatika',
                       email: 'email@students.amikom.ac.id',
                       lokasi: 'Yogyakarta, Indonesia',
                     ),
-                    SizedBox(height: 24),
-                    SocialMediaRow(),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 24),
+                    const SocialMediaRow(),
+                    const SizedBox(height: 16),
                   ],
                 ),
               ),
             ),
-
-            // b) Tombol aksi dibungkus Flexible sejajar langsung di Column utama
-            Flexible(
-              flex: 1,
-              fit: FlexFit.loose,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ElevatedButton.icon(
-                    onPressed: () {},
-                    icon: const Icon(Icons.edit),
-                    label: const Text('Edit'),
-                  ),
-                  ElevatedButton.icon(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const AboutScreen(),
-                        ),
-                      );
-                    },
-                    icon: const Icon(Icons.info),
-                    label: const Text('Tentang'),
-                  ),
-                ],
-              ),
-            ),
+            const ActionButtons(),
           ],
         ),
       ),
